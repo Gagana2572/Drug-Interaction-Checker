@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drug Interaction Checker</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f0f4f8;
+            color: #2d3748;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #1a365d 0%, #2b6cb0 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .hero .pill-icon { font-size: 64px; margin-bottom: 16px; }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 32px;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.2s, opacity 0.2s;
+            display: inline-block;
+        }
+
+        .btn:hover { transform: translateY(-2px); opacity: 0.9; }
+        .btn-primary { background: white; color: #1a365d; }
+        .btn-secondary { background: transparent; color: white; border: 2px solid white; }
+
+        .stats-bar {
+            background: #2b6cb0;
+            padding: 24px 20px;
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+
+        .stat { text-align: center; color: white; }
+        .stat-number { font-size: 2rem; font-weight: 700; }
+        .stat-label { font-size: 0.85rem; opacity: 0.85; margin-top: 4px; }
+
+        .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+
+        section { padding: 60px 20px; }
+
+        section h2 {
+            font-size: 1.9rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #1a365d;
+        }
+
+        .problem-section { background: white; }
+
+        .problem-box {
+            background: #ebf8ff;
+            border-left: 5px solid #2b6cb0;
+            padding: 24px 28px;
+            border-radius: 0 8px 8px 0;
+            max-width: 700px;
+            margin: 0 auto 32px;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: #2d3748;
+        }
+
+        .problem-stats {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .problem-stat-card {
+            background: #fff5f5;
+            border: 1px solid #feb2b2;
+            border-radius: 10px;
+            padding: 20px 24px;
+            text-align: center;
+            flex: 1;
+            min-width: 180px;
+        }
+
+        .problem-stat-card .number { font-size: 1.8rem; font-weight: 700; color: #c53030; }
+        .problem-stat-card .label { font-size: 0.85rem; color: #742a2a; margin-top: 6px; line-height: 1.4; }
+
+        .how-section { background: #f0f4f8; }
+
+        .steps {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        .step {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            background: white;
+            padding: 20px 24px;
+            border-radius: 10px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+        }
+
+        .step-number {
+            background: #2b6cb0;
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        .step-text h3 { font-size: 1rem; font-weight: 600; margin-bottom: 4px; color: #1a365d; }
+        .step-text p { font-size: 0.9rem; color: #4a5568; line-height: 1.5; }
+
+        .features-section { background: white; }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 24px 20px;
+            text-align: center;
+        }
+
+        .feature-card .icon { font-size: 2rem; margin-bottom: 12px; }
+        .feature-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 8px; color: #1a365d; }
+        .feature-card p { font-size: 0.88rem; color: #4a5568; line-height: 1.5; }
+
+        .tech-section { background: #f0f4f8; }
+
+        .tech-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .tech-badge {
+            background: white;
+            border: 1px solid #bee3f8;
+            color: #2b6cb0;
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .team-section { background: white; }
+
+        .team-grid {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .team-card {
+            background: #ebf8ff;
+            border-radius: 12px;
+            padding: 28px 36px;
+            text-align: center;
+            min-width: 200px;
+        }
+
+        .team-card .avatar {
+            width: 64px;
+            height: 64px;
+            background: #2b6cb0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            margin: 0 auto 12px;
+        }
+
+        .team-card h3 { font-weight: 600; color: #1a365d; margin-bottom: 4px; }
+        .team-card p { font-size: 0.85rem; color: #4a5568; }
+
+        .disclaimer-section {
+            background: #fffbeb;
+            border-top: 4px solid #f6ad55;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .disclaimer-box {
+            max-width: 680px;
+            margin: 0 auto;
+            font-size: 0.95rem;
+            color: #744210;
+            line-height: 1.7;
+        }
+
+        .disclaimer-box strong { display: block; font-size: 1.1rem; margin-bottom: 8px; }
+
+        footer {
+            background: #1a365d;
+            color: #a0aec0;
+            text-align: center;
+            padding: 28px 20px;
+            font-size: 0.88rem;
+        }
+
+        footer a { color: #90cdf4; text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 2rem; }
+            .stats-bar { gap: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO -->
+    <div class="hero">
+        <div class="pill-icon">💊</div>
+        <h1>Drug Interaction Checker</h1>
+        <p>
+            An AI-powered tool for non-expert caregivers — grounded in official 
+            FDA label data, not AI memory. Every answer is traceable to a source.
+        </p>
+        <div class="hero-buttons">
+            <a href="https://drug-interaction-checker-ndqfsmpfggqqybc32vjlve.streamlit.app/" class="btn btn-primary" target="_blank">
+                🚀 Try the Live Demo
+            </a>
+            <a href="https://github.com/Gagana2572/Drug-Interaction-Checker" class="btn btn-secondary" target="_blank">
+                📂 View on GitHub
+            </a>
+        </div>
+    </div>
+
+    <!-- STATS BAR -->
+    <div class="stats-bar">
+        <div class="stat">
+            <div class="stat-number">53M+</div>
+            <div class="stat-label">Unpaid family caregivers<br>in the US</div>
+        </div>
+        <div class="stat">
+            <div class="stat-number">1.3M</div>
+            <div class="stat-label">ER visits per year from<br>adverse drug events</div>
+        </div>
+        <div class="stat">
+            <div class="stat-number">45</div>
+            <div class="stat-label">Possible drug pairs when<br>managing 10 medications</div>
+        </div>
+    </div>
+
+    <!-- PROBLEM -->
+    <section class="problem-section">
+        <div class="container">
+            <h2>The Problem We're Solving</h2>
+            <div class="problem-box">
+                Picture a Tuesday evening. You're not a doctor — you're a daughter, a son, 
+                a spouse managing eleven prescription bottles on the kitchen counter, each 
+                from a different doctor, none of them talking to each other.
+                Most caregivers turn to general-purpose AI chatbots — the most dangerous option 
+                of the three available to them.
+            </div>
+            <div class="problem-stats">
+                <div class="problem-stat-card">
+                    <div class="number">65+</div>
+                    <div class="label">Average age of polypharmacy patients taking 5+ medications daily</div>
+                </div>
+                <div class="problem-stat-card">
+                    <div class="number">~50%</div>
+                    <div class="label">Of adverse drug events are preventable — the interaction was known</div>
+                </div>
+                <div class="problem-stat-card">
+                    <div class="number">0</div>
+                    <div class="label">Existing tools designed specifically for non-expert caregivers</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="how-section">
+        <div class="container">
+            <h2>How It Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-text">
+                        <h3>You enter drug names</h3>
+                        <p>Type any drug names — brand or generic. "Advil" and "ibuprofen" both work. Separate multiple drugs with commas.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-text">
+                        <h3>Brand names are normalized</h3>
+                        <p>The NIH RxNorm API automatically converts brand names to their generic equivalents before searching.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-text">
+                        <h3>FDA labels are retrieved in real time</h3>
+                        <p>Official drug labels are fetched from the FDA OpenFDA API and stored in a local FAISS vector index for semantic search.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-text">
+                        <h3>Completeness is verified</h3>
+                        <p>Before generating any output, the system checks that a label was retrieved for every drug. Missing labels trigger a visible warning — never a silent partial answer.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <div class="step-text">
+                        <h3>Plain-English summary with citations</h3>
+                        <p>LLaMA 3.3 70B via Groq synthesizes the retrieved label text into a caregiver-friendly summary. Every claim links back to the exact FDA label it came from.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features-section">
+        <div class="container">
+            <h2>Key Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="icon">🔍</div>
+                    <h3>Source-Grounded Answers</h3>
+                    <p>Every claim traces back to a specific FDA DailyMed label. The model reads the document — it doesn't guess from memory.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">🛡️</div>
+                    <h3>Silent Failure Detection</h3>
+                    <p>If any drug label can't be retrieved, the system blocks output and warns you — never generating a confidently incomplete answer.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">💬</div>
+                    <h3>Plain English Output</h3>
+                    <p>Summaries are written for non-medical readers. No jargon. Clear severity levels and actionable next steps.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">🔄</div>
+                    <h3>Brand Name Support</h3>
+                    <p>Automatically converts brand names like Advil or Tylenol to their generic equivalents using the NIH RxNorm API.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">📚</div>
+                    <h3>Full Citations</h3>
+                    <p>Every output includes the FDA label ID, last updated date, and a direct link to the source document.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">🔒</div>
+                    <h3>Privacy by Design</h3>
+                    <p>No personal health data collected. Users enter drug names only. The system is stateless — nothing stored between sessions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TECH STACK -->
+    <section class="tech-section">
+        <div class="container">
+            <h2>Tech Stack</h2>
+            <div class="tech-grid">
+                <span class="tech-badge">🦙 LLaMA 3.3 70B (Groq)</span>
+                <span class="tech-badge">🔗 LangChain</span>
+                <span class="tech-badge">📦 FAISS Vector Store</span>
+                <span class="tech-badge">🤗 sentence-transformers</span>
+                <span class="tech-badge">💊 FDA OpenFDA API</span>
+                <span class="tech-badge">🧪 NIH RxNorm API</span>
+                <span class="tech-badge">🌐 Streamlit</span>
+                <span class="tech-badge">🐍 Python</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEAM -->
+    <section class="team-section">
+        <div class="container">
+            <h2>Built By</h2>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="avatar">👩‍💻</div>
+                    <h3>Gagana M</h3>
+                    <p>Northeastern University</p>
+                </div>
+                <div class="team-card">
+                    <div class="avatar">👩‍💻</div>
+                    <h3>Madhumitha Nandhikatti</h3>
+                    <p>Northeastern University</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DISCLAIMER -->
+    <div class="disclaimer-section">
+        <div class="disclaimer-box">
+            <strong>⚠️ Important Disclaimer</strong>
+            This tool summarizes FDA label information for educational purposes only. 
+            It is not a substitute for consultation with a licensed pharmacist or physician. 
+            Do not make medication decisions based solely on this output. 
+            This system is scoped to FDA-approved US drug labels only.
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>
+            Drug Interaction Checker · Built for INFO 7375 Generative AI ·
+            <a href="https://github.com/Gagana2572/Drug-Interaction-Checker" target="_blank">GitHub</a> ·
+            <a href="https://drug-interaction-checker-ndqfsmpfggqqybc32vjlve.streamlit.app/" target="_blank">Live Demo</a>
+        </p>
+        <p style="margin-top: 8px;">Data source: FDA DailyMed · US drug labels only</p>
+    </footer>
+
+</body>
+</html>
