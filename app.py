@@ -5,29 +5,56 @@ from src.ingest import build_index
 from src.retriever import retrieve_drug_chunks, check_retrieval_completeness
 from src.generator import generate_interaction_summary
 
-st.title("Drug Interaction Checker")
-st.write("Enter two or more drugs to check for interactions.")
+st.set_page_config(
+    page_title="Drug Interaction Checker",
+    page_icon="💊",
+    layout="centered"
+)
 
-drug_input = st.text_input("Enter drug names separated by commas (e.g. Advil, warfarin)")
+st.title("💊 Drug Interaction Checker")
+st.caption("For non-expert caregivers — grounded in FDA label data, not AI memory")
+st.markdown("---")
 
-if st.button("Check Interactions"):
-    if drug_input:
-        with st.spinner("Checking interactions..."):
-            drugs = [d.strip() for d in drug_input.split(",")]
-            generic_drugs = [brand_to_generic(d) for d in drugs]
-            st.write(f"Checking: {', '.join(generic_drugs)}")
+drug_input = st.text_input(
+    "Enter drug names, separated by commas:",
+    placeholder="e.g. Advil, warfarin, lisinopril"
+)
 
-            index = build_index(generic_drugs)
-            results = retrieve_drug_chunks(generic_drugs, index)
-            missing = check_retrieval_completeness(results)
+if st.button("Check Interactions", type="primary") and drug_input:
+    raw_drugs = [d.strip() for d in drug_input.split(",") if d.strip()]
 
-            if missing:
-                st.warning(f"No FDA data found for: {', '.join(missing)}")
+    with st.spinner("Looking up drug names..."):
+        generic_drugs = []
+        for drug in raw_drugs:
+            generic = brand_to_generic(drug)
+            if generic != drug.lower():
+                st.success(f"Brand name '{drug}' recognized as generic: '{generic}'")
+            generic_drugs.append(generic)
 
-            if any(v is not None for v in results.values()):
-                summary = generate_interaction_summary(generic_drugs, results)
-                st.markdown(summary)
-            else:
-                st.error("Could not find FDA label data for any of the drugs entered.")
+    st.info(f"Checking interactions for: {', '.join(generic_drugs)}")
+
+    with st.spinner("Retrieving FDA label data..."):
+        index = build_index(generic_drugs)
+        retrieval_results = retrieve_drug_chunks(generic_drugs, index)
+
+    missing = check_retrieval_completeness(retrieval_results)
+    if missing:
+        st.warning(
+            f"Incomplete data warning: FDA label data could not be retrieved for: "
+            f"{', '.join(missing)}. "
+            f"The summary below covers only the drugs that were found. "
+            f"Please consult a pharmacist directly before making any decisions."
+        )
+
+    found = {k: v for k, v in retrieval_results.items() if v is not None}
+    if found:
+        with st.spinner("Generating interaction summary from FDA labels..."):
+            summary = generate_interaction_summary(list(found.keys()), found)
+        st.markdown("## Interaction Summary")
+        with st.container(border=True):
+            st.markdown(summary)
     else:
-        st.warning("Please enter at least two drug names.")
+        st.error(
+            "No FDA label data could be retrieved for any of the entered drugs. "
+            "Please check spelling and try again, or consult a pharmacist directly."
+        )
