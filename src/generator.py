@@ -69,7 +69,7 @@ FDA LABEL DATA:
         )
     except Exception as e:
         if "rate_limit" in str(e).lower():
-            return " The API is temporarily rate-limited. Please wait 30 seconds and try again."
+            return f" Rate limit hit. Full error: {str(e)}"
         if "invalid_api_key" in str(e).lower() or "authentication" in str(e).lower():
             return " API key error. Please check your Groq API key in Streamlit secrets."
         return f" An error occurred: {str(e)}"
