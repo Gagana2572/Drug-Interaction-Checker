@@ -1,4 +1,4 @@
-﻿# app.py
+# app.py
 import streamlit as st
 from src.normalizer import brand_to_generic
 from src.ingest import build_index
