@@ -1,4 +1,4 @@
-﻿# src/ingest.py
+﻿﻿# src/ingest.py
 import requests
 import os
 from langchain_community.vectorstores import FAISS
@@ -55,6 +55,10 @@ def build_index(drug_list: list, save_path: str = "index"):
             })
         else:
             print(f"Could not fetch label for: {drug}")
+
+    # Guard — if no labels found at all, raise clear error
+    if not documents:
+        raise ValueError(f"No FDA labels could be retrieved for: {drug_list}. Please check the drug names and try again.")
 
     embeddings = get_embeddings()
     os.makedirs(save_path, exist_ok=True)
