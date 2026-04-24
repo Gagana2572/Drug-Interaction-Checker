@@ -43,6 +43,7 @@ def generate_interaction_summary(drug_names: list, retrieval_results: dict) -> s
             citations.append(metadata)
 
     context = "\n\n".join(context_parts)
+    context = context[:3000]
     drugs_str = " and ".join(drug_names)
 
     user_message = f"""Using ONLY the FDA label excerpts below, explain the interaction 
@@ -64,7 +65,7 @@ FDA LABEL DATA:
                 {"role": "user", "content": user_message}
             ],
             temperature=0.1,
-            max_tokens=1024
+            max_tokens=512
         )
     except Exception as e:
         if "rate_limit" in str(e).lower():
