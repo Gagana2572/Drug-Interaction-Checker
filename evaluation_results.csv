@@ -1,0 +1,367 @@
+case_number,drugs,category,expected_severity,retrieval_complete,missing_drugs,output,score,passed,interaction_identified,severity_mentioned,action_given,citation_present
+1,"['warfarin', 'ibuprofen']",high,major,True,none,"Based on the FDA label excerpts, here's the information about the interaction between warfarin and ibuprofen:
+
+1. Does an interaction exist? Yes
+2. Severity level: Moderate
+3. What symptoms or risks to watch for: Increased risk of bleeding
+4. What the caregiver should do: Closely monitor patients receiving ibuprofen with warfarin, as ibuprofen is a non-steroidal anti-inflammatory agent that can increase the risk of bleeding when used concomitantly with warfarin.
+
+Warning: This tool summarizes FDA label information for educational purposes only. It is not a 
+substitute for consultation with a licensed pharmacist or physician. Do not make medication 
+decisions based solely on this output.
+
+---
+Sources (FDA DailyMed):
+- Warfarin: FDA Drug Label
+- Ibuprofen: FDA Drug Label
+",4,True,True,True,True,True
+2,"['simvastatin', 'clarithromycin']",high,contraindicated,True,none,"1. Does an interaction exist? Yes
+2. Severity level: Contraindicated
+3. What symptoms or risks to watch for: Myopathy and rhabdomyolysis, which can be serious muscle conditions.
+4. What the caregiver should do: Avoid combination of simvastatin and clarithromycin. If treatment with clarithromycin is unavoidable, suspend simvastatin during the course of clarithromycin treatment.
+
+Warning: This tool summarizes FDA label information for educational purposes only. It is not a 
+substitute for consultation with a licensed pharmacist or physician. Do not make medication 
+decisions based solely on this output.
+
+---
+Sources (FDA DailyMed):
+- Simvastatin: FDA Drug Label
+- Clarithromycin: FDA Drug Label
+",4,True,True,True,True,True
+3,"['methotrexate', 'ibuprofen']",high,major,True,none,"Based on the FDA label excerpts, here's the information about the interaction risks between methotrexate and ibuprofen:
+
+1. Does an interaction exist? Yes
+2. Severity level: Moderate to Major (may increase the risk of methotrexate severe adverse reactions)
+3. What symptoms or risks to watch for: Increased risk of methotrexate adverse reactions, such as organ-specific adverse reactions, including hepatotoxic or nephrotoxic effects.
+4. What the caregiver should do: Monitor closely for methotrexate adverse reactions when coadministered with ibuprofen, as ibuprofen is a nonsteroidal anti-inflammatory drug (NSAID) that may increase methotrexate plasma concentrations.
+
+Warning: This tool summarizes FDA label information for educational purposes only. It is not a 
+substitute for consultation with a licensed pharmacist or physician. Do not make medication 
+decisions based solely on this output.
+
+---
+Sources (FDA DailyMed):
+- Methotrexate: FDA Drug Label
+- Ibuprofen: FDA Drug Label
+",4,True,True,True,True,True
+4,"['warfarin', 'aspirin']",high,major,True,none,"Based on the FDA label excerpts, here's the information about the interaction between warfarin and aspirin:
+
+1. Does an interaction exist? Yes
+2. Severity level: Major
+3. What symptoms or risks to watch for: Increased risk of bleeding
+4. What the caregiver should do: Closely monitor patients receiving aspirin with warfarin, as aspirin is listed as a drug that can increase the risk of bleeding when used concomitantly with warfarin.
+
+Warning: This tool summarizes FDA label information for educational purposes only. It is not a 
+substitute for consultation with a licensed pharmacist or physician. Do not make medication 
+decisions based solely on this output.
+
+---
+Sources (FDA DailyMed):
+- Warfarin: FDA Drug Label
+- Aspirin: FDA Drug Label
+",4,True,True,True,True,True
+5,"['lithium', 'ibuprofen']",high,major,True,none,"Based on the FDA label excerpts, here's the information about the interaction between lithium and ibuprofen:
+
+1. Does an interaction exist? No
+2. Severity level: No interaction documented in FDA label.
+3. Since no interaction is documented, there are no specific symptoms or risks to watch for mentioned in the label.
+4. The caregiver should: consult pharmacist, as the label does not provide any information about potential interactions.
+
+Warning: This tool summarizes FDA label information for educational purposes only. It is not a 
+substitute for consultation with a licensed pharmacist or physician. Do not make medication 
+decisions based solely on this output.
+
+---
+Sources (FDA DailyMed):
+- Lithium: FDA Drug Label
+- Ibuprofen: FDA Drug Label
+",3,True,True,False,True,True
+6,"['clopidogrel', 'omeprazole']",high,major,True,none,"1. Does an interaction exist? Yes
+2. Severity level: Moderate
+3. What symptoms or risks to watch for: Reduced antiplatelet activity of clopidogrel, which may increase the risk of blood clots.
+4. What the caregiver should do: Avoid concomitant use of clopidogrel with omeprazole. If concomitant use is necessary, consult a pharmacist or doctor to discuss alternative treatments.
+
+Warning: This tool summarizes FDA label information for educational purposes only. It is not a 
+substitute for consultation with a licensed pharmacist or physician. Do not make medication 
+decisions based solely on this output.
+
+---
+Sources (FDA DailyMed):
+- Clopidogrel: FDA Drug Label
+- Omeprazole: FDA Drug Label
+",4,True,True,True,True,True
+7,"['warfarin', 'fluconazole']",high,major,True,none,"1. Does an interaction exist? Yes
+2. Severity level: Moderate
+3. What symptoms or risks to watch for: Increased prothrombin time, which can lead to bleeding risks
+4. What the caregiver should do: Closely monitor INR when starting or stopping fluconazole in patients taking warfarin, and consult a pharmacist or physician to adjust the warfarin dose as needed.
+
+Warning: This tool summarizes FDA label information for educational purposes only. It is not a substitute for consultation with a licensed pharmacist or physician. Do not make medication decisions based solely on this output.
+
+---
+Sources (FDA DailyMed):
+- Warfarin: FDA Drug Label
+- Fluconazole: FDA Drug Label
+",4,True,True,True,True,True
+8,"['simvastatin', 'amiodarone']",high,contraindicated,True,none,"1. Does an interaction exist? Yes
+2. Severity level: Moderate
+3. What symptoms or risks to watch for: The risk of myopathy and rhabdomyolysis is increased with concomitant use of amiodarone with simvastatin.
+4. What the caregiver should do: For patients taking amiodarone, do not exceed simvastatin 20 mg daily. Monitor patients for signs and symptoms of myopathy, particularly during initiation of therapy and during upward dose titration of either drug. Consult a pharmacist to discuss the potential risks and benefits of this combination.
+
+Warning: This tool summarizes FDA label information for educational purposes only. It is not a substitute for consultation with a licensed pharmacist or physician. Do not make medication decisions based solely on this output.
+
+---
+Sources (FDA DailyMed):
+- Simvastatin: FDA Drug Label
+- Amiodarone: FDA Drug Label
+",4,True,True,True,True,True
+9,"['digoxin', 'amiodarone']",high,major,True,none,"1. Does an interaction exist? Yes
+2. Severity level: Moderate
+3. What symptoms or risks to watch for: Increased risk of digoxin toxicity, bradycardia, sinus arrest, and AV block due to potentiated electrophysiologic and hemodynamic effects.
+4. What the caregiver should do: Monitor heart rate, reduce digoxin dose by approximately 30-50% or modify the dosing frequency, and continue monitoring for evidence of toxicity.
+
+Warning: This tool summarizes FDA label information for educational purposes only. It is not a 
+substitute for consultation with a licensed pharmacist or physician. Do not make medication 
+decisions based solely on this output.
+
+---
+Sources (FDA DailyMed):
+- Digoxin: FDA Drug Label
+- Amiodarone: FDA Drug Label
+",4,True,True,True,True,True
+10,"['warfarin', 'metronidazole']",high,major,True,none,"1. Does an interaction exist? Yes
+2. Severity level: Moderate
+3. What symptoms or risks to watch for: Prolongation of prothrombin time, increased risk of bleeding
+4. What the caregiver should do: Monitor prothrombin time and INR carefully when metronidazole is prescribed for patients on warfarin therapy, and consult a pharmacist or physician for guidance.
+
+Warning: This tool summarizes FDA label information for educational purposes only. It is not a 
+substitute for consultation with a licensed pharmacist or physician. Do not make medication 
+decisions based solely on this output.
+
+---
+Sources (FDA DailyMed):
+- Warfarin: FDA Drug Label
+- Metronidazole: FDA Drug Label
+",4,True,True,True,True,True
+11,"['theophylline', 'ciprofloxacin']",high,major,True,none,"1. Does an interaction exist? Yes
+2. Severity level: Moderate
+3. What symptoms or risks to watch for: The interaction between theophylline and ciprofloxacin may cause a 40% increase in theophylline concentration, which can lead to increased risk of theophylline toxicity.
+4. What the caregiver should do: Consult a pharmacist or healthcare professional to monitor theophylline levels and adjust the dose as necessary to avoid toxicity.
+
+Warning: This tool summarizes FDA label information for educational purposes only. It is not a 
+substitute for consultation with a licensed pharmacist or physician. Do not make medication 
+decisions based solely on this output.
+
+---
+Sources (FDA DailyMed):
+- Theophylline: FDA Drug Label
+- Ciprofloxacin: FDA Drug Label
+",4,True,True,True,True,True
+12,"['warfarin', 'ciprofloxacin']",high,major,True,none,"1. Does an interaction exist? Yes
+2. Severity level: Moderate
+3. What symptoms or risks to watch for: Increased risk of bleeding due to elevated INR
+4. What the caregiver should do: Closely monitor INR when starting or stopping ciprofloxacin in patients taking warfarin, and consult a pharmacist or physician for guidance.
+
+Warning: This tool summarizes FDA label information for educational purposes only. It is not a 
+substitute for consultation with a licensed pharmacist or physician. Do not make medication 
+decisions based solely on this output.
+
+---
+Sources (FDA DailyMed):
+- Warfarin: FDA Drug Label
+- Ciprofloxacin: FDA Drug Label
+",4,True,True,True,True,True
+13,"['phenytoin', 'fluconazole']",high,major,True,none,"1. Does an interaction exist? Yes
+2. Severity level: Major
+3. What symptoms or risks to watch for: Increased phenytoin serum levels, which may lead to enhanced risk of drug toxicity.
+4. What the caregiver should do: Monitor phenytoin serum levels closely and consult a pharmacist to adjust the phenytoin dose as needed to achieve optimal clinical outcome.
+
+Warning: This tool summarizes FDA label information for educational purposes only. It is not a 
+substitute for consultation with a licensed pharmacist or physician. Do not make medication 
+decisions based solely on this output.
+
+---
+Sources (FDA DailyMed):
+- Phenytoin: FDA Drug Label
+- Fluconazole: FDA Drug Label
+",4,True,True,True,True,True
+14,"['simvastatin', 'gemfibrozil']",high,contraindicated,True,none,"1. Does an interaction exist? Yes
+2. Severity level: Contraindicated
+3. What symptoms or risks to watch for: Myopathy and rhabdomyolysis
+4. What the caregiver should do: Avoid combination of simvastatin and gemfibrozil.
+
+Warning: This tool summarizes FDA label information for educational purposes only. It is not a 
+substitute for consultation with a licensed pharmacist or physician. Do not make medication 
+decisions based solely on this output.
+
+---
+Sources (FDA DailyMed):
+- Simvastatin: FDA Drug Label
+- Gemfibrozil: FDA Drug Label
+",4,True,True,True,True,True
+15,"['warfarin', 'amiodarone']",high,major,True,none,"An interaction exists between warfarin and amiodarone. 
+The severity level is major. 
+When taking warfarin and amiodarone together, there is a risk of serious or fatal bleeding due to the increased anticoagulant response. 
+The caregiver should consult a pharmacist and monitor prothrombin times closely. The warfarin dose may need to be reduced by one-third to one-half.
+
+Warning: This tool summarizes FDA label information for educational purposes only. It is not a 
+substitute for consultation with a licensed pharmacist or physician. Do not make medication 
+decisions based solely on this output.
+
+---
+Sources (FDA DailyMed):
+- Warfarin: FDA Drug Label
+- Amiodarone: FDA Drug Label
+",4,True,True,True,True,True
+16,"['lithium', 'lisinopril']",high,major,True,none,"1. Does an interaction exist? Yes
+2. Severity level: Moderate
+3. What symptoms or risks to watch for: Lithium toxicity, which can be reversible upon discontinuation of lithium and the ACE inhibitor.
+4. What the caregiver should do: Monitor serum lithium levels frequently if lisinopril is administered concomitantly with lithium, and consult a pharmacist or physician for guidance.
+
+Warning: This tool summarizes FDA label information for educational purposes only. It is not a 
+substitute for consultation with a licensed pharmacist or physician. Do not make medication 
+decisions based solely on this output.
+
+---
+Sources (FDA DailyMed):
+- Lithium: FDA Drug Label
+- Lisinopril: FDA Drug Label
+",4,True,True,True,True,True
+17,"['warfarin', 'naproxen']",high,major,True,none,"1. Does an interaction exist? Yes
+2. Severity level: Major
+3. What symptoms or risks to watch for: Increased risk of serious bleeding
+4. What the caregiver should do: Monitor patients for signs of bleeding who are concomitantly taking naproxen and warfarin.
+
+Warning: This tool summarizes FDA label information for educational purposes only. It is not a 
+substitute for consultation with a licensed pharmacist or physician. Do not make medication 
+decisions based solely on this output.
+
+---
+Sources (FDA DailyMed):
+- Warfarin: FDA Drug Label
+- Naproxen: FDA Drug Label
+",4,True,True,True,True,True
+18,"['digoxin', 'clarithromycin']",high,major,True,none,"1. Does an interaction exist? Yes
+2. Severity level: Moderate
+3. What symptoms or risks to watch for: Elevated digoxin serum concentrations, potentially fatal arrhythmias, and signs of digoxin toxicity.
+4. What the caregiver should do: Monitor serum digoxin concentrations, especially for patients with digoxin concentrations in the upper therapeutic range, and consult a pharmacist or physician to adjust the digoxin dose as necessary.
+
+Warning: This tool summarizes FDA label information for educational purposes only. It is not a substitute for consultation with a licensed pharmacist or physician. Do not make medication decisions based solely on this output.
+
+---
+Sources (FDA DailyMed):
+- Digoxin: FDA Drug Label
+- Clarithromycin: FDA Drug Label
+",4,True,True,True,True,True
+19,"['warfarin', 'fluoxetine']",high,major,True,none,"1. Does an interaction exist? Yes
+2. Severity level: Moderate
+3. What symptoms or risks to watch for: Increased risk of bleeding due to the interaction between warfarin and fluoxetine. Altered anticoagulant effects, including increased bleeding, have been reported when SNRIs or SSRIs are coadministered with warfarin.
+4. What the caregiver should do: Patients receiving warfarin therapy should be carefully monitored when fluoxetine is initiated or discontinued. Closely monitor INR when starting or stopping fluoxetine in patients taking warfarin. Consult the labeling of all concurrently used drugs to obtain further information about interactions with warfarin sodium or adverse reactions pertaining to bleeding.
+
+Warning: This tool summarizes FDA label information for educational purposes only. It is not a 
+substitute for consultation with a licensed pharmacist or physician. Do not make medication 
+decisions based solely on this output.
+
+---
+Sources (FDA DailyMed):
+- Warfarin: FDA Drug Label
+- Fluoxetine: FDA Drug Label
+",4,True,True,True,True,True
+20,"['carbamazepine', 'clarithromycin']",high,major,True,none,"1. Does an interaction exist? Yes
+2. Severity level: Moderate
+3. What symptoms or risks to watch for: Increased plasma concentrations of carbamazepine, which may lead to increased or prolonged adverse effects.
+4. What the caregiver should do: Monitor blood levels of carbamazepine and adjust the dosage as necessary when co-administered with clarithromycin. Consult a pharmacist or physician for guidance on managing the interaction.
+
+Warning: This tool summarizes FDA label information for educational purposes only. It is not a 
+substitute for consultation with a licensed pharmacist or physician. Do not make medication 
+decisions based solely on this output.
+
+---
+Sources (FDA DailyMed):
+- Carbamazepine: FDA Drug Label
+- Clarithromycin: FDA Drug Label
+",4,True,True,True,True,True
+21,"['lisinopril', 'ibuprofen']",moderate,moderate,True,none,"1. Does an interaction exist? (yes / no / unknown based on label): Yes
+2. Severity level: Moderate
+3. What symptoms or risks to watch for: Deterioration of renal function, including possible acute renal failure, and attenuation of the antihypertensive effect of lisinopril.
+4. What the caregiver should do: Monitor renal function periodically in patients receiving lisinopril and ibuprofen (an NSAID) therapy, and consult a pharmacist or physician to discuss the potential risks and benefits of combining these medications.
+
+Warning: This tool summarizes FDA label information for educational purposes only. It is not a 
+substitute for consultation with a licensed pharmacist or physician. Do not make medication 
+decisions based solely on this output.
+
+---
+Sources (FDA DailyMed):
+- Lisinopril: FDA Drug Label
+- Ibuprofen: FDA Drug Label
+",4,True,True,True,True,True
+22,"['atorvastatin', 'clarithromycin']",moderate,moderate,False,error,"ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01knay0tmcfr4vyrnkg0vbxkng` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 93875, Requested 6636. Please try again in 7m21.504s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",0,False,False,False,False,False
+23,"['amlodipine', 'simvastatin']",moderate,moderate,True,none,"1. Does an interaction exist? Yes
+2. Severity level: Moderate
+3. What symptoms or risks to watch for: The risk of myopathy and rhabdomyolysis is increased with concomitant use of amlodipine and simvastatin. 
+4. What the caregiver should do: The dose of simvastatin should not exceed 20 mg daily when taking amlodipine. Monitor patients for signs and symptoms of myopathy, particularly during initiation of therapy and during upward dose titration of either drug.
+
+Warning: This tool summarizes FDA label information for educational purposes only. It is not a 
+substitute for consultation with a licensed pharmacist or physician. Do not make medication 
+decisions based solely on this output.
+
+---
+Sources (FDA DailyMed):
+- Amlodipine: FDA Drug Label
+- Simvastatin: FDA Drug Label
+",4,True,True,True,True,True
+24,"['sertraline', 'ibuprofen']",moderate,moderate,False,error,"ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01knay0tmcfr4vyrnkg0vbxkng` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 96595, Requested 5801. Please try again in 34m30.143999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",0,False,False,False,False,False
+25,"['lisinopril', 'potassium']",moderate,moderate,True,none,"1. Does an interaction exist? Yes
+2. Severity level: Moderate
+3. What symptoms or risks to watch for: Hyperkalemia (high levels of potassium in the blood) and potential changes in renal function.
+4. What the caregiver should do: Monitor serum potassium levels frequently, especially if the patient is taking potassium supplements or potassium-sparing diuretics, and consult a pharmacist or physician to adjust the treatment plan as needed.
+
+Warning: This tool summarizes FDA label information for educational purposes only. It is not a 
+substitute for consultation with a licensed pharmacist or physician. Do not make medication 
+decisions based solely on this output.
+
+---
+Sources (FDA DailyMed):
+- Lisinopril: FDA Drug Label
+- Potassium: FDA Drug Label
+",4,True,True,True,True,True
+26,"['metoprolol', 'diphenhydramine']",moderate,moderate,True,none,"Based on the FDA label excerpts, here's the information about the interaction between metoprolol and diphenhydramine:
+
+1. Does an interaction exist? No interaction documented in FDA label.
+2. Severity level: None documented
+3. What symptoms or risks to watch for: No specific symptoms or risks are mentioned in the label.
+4. What the caregiver should do: Consult pharmacist, as there is no information available about potential interactions between metoprolol and diphenhydramine in the provided FDA label excerpts.
+
+Warning: This tool summarizes FDA label information for educational purposes only. It is not a 
+substitute for consultation with a licensed pharmacist or physician. Do not make medication 
+decisions based solely on this output.
+
+---
+Sources (FDA DailyMed):
+- Metoprolol: FDA Drug Label
+- Diphenhydramine: FDA Drug Label
+",4,True,True,True,True,True
+27,"['gabapentin', 'hydrocodone']",moderate,moderate,False,error,"ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01knay0tmcfr4vyrnkg0vbxkng` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99888, Requested 2360. Please try again in 32m22.272s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",0,False,False,False,False,False
+28,"['fluoxetine', 'alprazolam']",moderate,moderate,False,error,"ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01knay0tmcfr4vyrnkg0vbxkng` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99883, Requested 4408. Please try again in 1h1m47.423999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",0,False,False,False,False,False
+29,"['atorvastatin', 'amlodipine']",moderate,moderate,False,error,"ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01knay0tmcfr4vyrnkg0vbxkng` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99877, Requested 2745. Please try again in 37m45.408s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",0,False,False,False,False,False
+30,"['lisinopril', 'spironolactone']",moderate,moderate,False,error,"ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01knay0tmcfr4vyrnkg0vbxkng` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99873, Requested 2778. Please try again in 38m10.464s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",0,False,False,False,False,False
+31,"['metoprolol', 'verapamil']",moderate,moderate,False,error,"ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01knay0tmcfr4vyrnkg0vbxkng` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99867, Requested 3004. Please try again in 41m20.544s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",0,False,False,False,False,False
+32,"['warfarin', 'acetaminophen']",moderate,moderate,False,error,"ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01knay0tmcfr4vyrnkg0vbxkng` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99862, Requested 2287. Please try again in 30m56.735999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",0,False,False,False,False,False
+33,"['sertraline', 'tramadol']",moderate,moderate,False,error,"ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01knay0tmcfr4vyrnkg0vbxkng` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99857, Requested 7860. Please try again in 1h51m7.488s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",0,False,False,False,False,False
+34,"['gabapentin', 'naproxen']",moderate,moderate,False,error,"ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01knay0tmcfr4vyrnkg0vbxkng` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99852, Requested 3415. Please try again in 47m2.687999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",0,False,False,False,False,False
+35,"['metformin', 'lisinopril']",moderate,moderate,False,error,"ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01knay0tmcfr4vyrnkg0vbxkng` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99847, Requested 2601. Please try again in 35m15.071999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",0,False,False,False,False,False
+36,"['atorvastatin', 'digoxin']",moderate,moderate,False,['atorvastatin'],BLOCKED — missing labels for: ['atorvastatin'],0,False,False,False,False,False
+37,"['fluoxetine', 'tramadol']",moderate,moderate,False,error,"ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01knay0tmcfr4vyrnkg0vbxkng` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99722, Requested 5267. Please try again in 1h11m50.496s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",0,False,False,False,False,False
+38,"['amlodipine', 'metoprolol']",moderate,moderate,False,error,"ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01knay0tmcfr4vyrnkg0vbxkng` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99717, Requested 1444. Please try again in 16m43.104s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",0,False,False,False,False,False
+39,"['omeprazole', 'clopidogrel']",moderate,moderate,False,error,"ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01knay0tmcfr4vyrnkg0vbxkng` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99712, Requested 1603. Please try again in 18m56.16s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",0,False,False,False,False,False
+40,"['sertraline', 'alprazolam']",moderate,moderate,False,error,"ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01knay0tmcfr4vyrnkg0vbxkng` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99706, Requested 7001. Please try again in 1h36m34.848s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",0,False,False,False,False,False
+41,"['metformin', 'atorvastatin']",control,none,False,error,"ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01knay0tmcfr4vyrnkg0vbxkng` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99700, Requested 2982. Please try again in 38m37.248s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",0,False,False,False,False,False
+42,"['lisinopril', 'atorvastatin']",control,none,False,error,"ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01knay0tmcfr4vyrnkg0vbxkng` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99695, Requested 3890. Please try again in 51m37.44s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",0,False,False,False,False,False
+43,"['metformin', 'amlodipine']",control,none,False,error,"ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01knay0tmcfr4vyrnkg0vbxkng` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99690, Requested 1528. Please try again in 17m32.352s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",0,False,False,False,False,False
+44,"['omeprazole', 'metformin']",control,none,False,error,"ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01knay0tmcfr4vyrnkg0vbxkng` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99686, Requested 1155. Please try again in 12m6.624s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",0,False,False,False,False,False
+45,"['acetaminophen', 'lisinopril']",control,none,False,error,"ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01knay0tmcfr4vyrnkg0vbxkng` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99681, Requested 1991. Please try again in 24m4.608s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",0,False,False,False,False,False
+46,"['atorvastatin', 'metoprolol']",control,none,False,error,"ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01knay0tmcfr4vyrnkg0vbxkng` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99676, Requested 2970. Please try again in 38m6.144s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",0,False,False,False,False,False
+47,"['amlodipine', 'omeprazole']",control,none,False,error,"ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01knay0tmcfr4vyrnkg0vbxkng` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99672, Requested 917. Please try again in 8m28.896s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",0,False,False,False,False,False
+48,"['metformin', 'omeprazole']",control,none,False,error,"ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01knay0tmcfr4vyrnkg0vbxkng` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99667, Requested 1154. Please try again in 11m49.344s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",0,False,False,False,False,False
+49,"['lisinopril', 'metoprolol']",control,none,False,error,"ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01knay0tmcfr4vyrnkg0vbxkng` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99664, Requested 2589. Please try again in 32m26.592s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",0,False,False,False,False,False
+50,"['acetaminophen', 'metformin']",control,none,False,error,"ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01knay0tmcfr4vyrnkg0vbxkng` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99660, Requested 1119. Please try again in 11m13.056s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",0,False,False,False,False,False
