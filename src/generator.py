@@ -1,10 +1,19 @@
 # src/generator.py
+
 import groq
+import os
 from dotenv import load_dotenv
 
 load_dotenv()
 
-client = groq.Groq()
+# Read from Streamlit secrets if available, otherwise fall back to .env
+try:
+    import streamlit as st
+    api_key = st.secrets["GROQ_API_KEY"]
+except Exception:
+    api_key = os.getenv("GROQ_API_KEY")
+
+client = groq.Groq(api_key=api_key)
 
 SYSTEM_PROMPT = """You are a pharmacist assistant helping non-expert caregivers understand 
 drug interactions. You summarize FDA drug label information in plain English.
@@ -58,6 +67,11 @@ FDA LABEL DATA:
 
     citation_block = "\n\n---\nSources (FDA DailyMed):\n"
     for c in citations:
-        citation_block += f"- {c.get('drug', 'unknown').title()}: FDA Drug Label\n"
+        citation_block += (
+            f"- **{c.get('drug_name', 'unknown').title()}**: "
+            f"Label ID: `{c.get('set_id', 'unknown')}` | "
+            f"Last updated: `{c.get('last_updated', 'unknown')}`\n"
+            f"  🔗 {c.get('source', '')}\n"
+        )
 
     return summary + citation_block
