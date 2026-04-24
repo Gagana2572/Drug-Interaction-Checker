@@ -39,8 +39,12 @@ if st.button("Check Interactions", type="primary") and drug_input:
 
     # Stage 2: Fetch FDA labels + build index
     with st.spinner("Retrieving FDA label data..."):
-        index = build_index(generic_drugs)
-        retrieval_results = retrieve_drug_chunks(generic_drugs, index)
+        try:
+            index = build_index(generic_drugs)
+            retrieval_results = retrieve_drug_chunks(generic_drugs, index)
+        except ValueError as e:
+            st.error(f"❌ {str(e)}")
+            st.stop()
 
     # Stage 3: Completeness check — safety gate
     missing = check_retrieval_completeness(retrieval_results)
