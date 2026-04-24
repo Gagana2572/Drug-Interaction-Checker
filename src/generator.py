@@ -56,15 +56,22 @@ For each drug pair, clearly state:
 FDA LABEL DATA:
 {context}"""
 
-    response = client.chat.completions.create(
-        model="llama-3.1-8b-instant",
-        messages=[
-            {"role": "system", "content": SYSTEM_PROMPT},
-            {"role": "user", "content": user_message}
-        ],
-        temperature=0.1,
-        max_tokens=1024
-    )
+    try:
+        response = client.chat.completions.create(
+            model="llama-3.1-8b-instant",
+            messages=[
+                {"role": "system", "content": SYSTEM_PROMPT},
+                {"role": "user", "content": user_message}
+            ],
+            temperature=0.1,
+            max_tokens=1024
+        )
+    except Exception as e:
+        if "rate_limit" in str(e).lower():
+            return " The API is temporarily rate-limited. Please wait 30 seconds and try again."
+        if "invalid_api_key" in str(e).lower() or "authentication" in str(e).lower():
+            return " API key error. Please check your Groq API key in Streamlit secrets."
+        return f" An error occurred: {str(e)}"
 
     summary = response.choices[0].message.content
 
