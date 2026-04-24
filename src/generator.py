@@ -6,15 +6,6 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# Read from Streamlit secrets if available, otherwise fall back to .env
-try:
-    import streamlit as st
-    api_key = st.secrets["GROQ_API_KEY"]
-except Exception:
-    api_key = os.getenv("GROQ_API_KEY")
-
-client = groq.Groq(api_key=api_key)
-
 SYSTEM_PROMPT = """You are a pharmacist assistant helping non-expert caregivers understand 
 drug interactions. You summarize FDA drug label information in plain English.
 You MUST follow these rules strictly:
@@ -29,7 +20,19 @@ Warning: This tool summarizes FDA label information for educational purposes onl
 substitute for consultation with a licensed pharmacist or physician. Do not make medication 
 decisions based solely on this output."""
 
+def get_api_key():
+    """Always fetch fresh API key — never cached."""
+    try:
+        import streamlit as st
+        return st.secrets["GROQ_API_KEY"]
+    except Exception:
+        return os.getenv("GROQ_API_KEY")
+
 def generate_interaction_summary(drug_names: list, retrieval_results: dict) -> str:
+    
+    # Create fresh client every call using latest key
+    client = groq.Groq(api_key=get_api_key())
+    
     context_parts = []
     citations = []
 
