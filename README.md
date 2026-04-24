@@ -40,7 +40,7 @@ User Input → RxNorm Normalizer → FDA OpenFDA API → FAISS Vector Store → 
 
 | Component | Technology |
 |---|---|
-| LLM | LLaMA 3.3 70B via Groq API |
+| LLM | LLaMA 3.1 8B via Groq API |
 | Embeddings | all-MiniLM-L6-v2 (sentence-transformers, local) |
 | Vector Store | FAISS (local) |
 | RAG Framework | LangChain |
