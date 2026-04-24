@@ -18,7 +18,7 @@ st.markdown("---")
 
 drug_input = st.text_input(
     "Enter drug names, separated by commas:",
-    placeholder="e.g. warfarin, ibuprofen, lisinopril"
+    placeholder="e.g. Advil, warfarin, lisinopril"
 )
 
 if st.button("Check Interactions", type="primary") and drug_input:
@@ -31,8 +31,11 @@ if st.button("Check Interactions", type="primary") and drug_input:
         for drug in raw_drugs:
             generic = brand_to_generic(drug)
             if generic != drug.lower():
-                st.info(f"ℹ️ '{drug}' recognized as generic name: **{generic}**")
+                st.success(f"✅ Brand name **'{drug}'** → recognized as generic: **'{generic}'**")
             generic_drugs.append(generic)
+
+    # Show which drugs are being checked
+    st.info(f"🔍 Checking interactions for: **{', '.join(generic_drugs)}**")
 
     # Stage 2: Fetch FDA labels + build index
     with st.spinner("Retrieving FDA label data..."):
@@ -41,7 +44,7 @@ if st.button("Check Interactions", type="primary") and drug_input:
 
     # Stage 3: Completeness check — safety gate
     missing = check_retrieval_completeness(retrieval_results)
-    
+
     if missing:
         st.warning(
             f"⚠️ **Incomplete data warning:** FDA label data could not be retrieved for: "
@@ -55,11 +58,19 @@ if st.button("Check Interactions", type="primary") and drug_input:
 
     if found:
         with st.spinner("Generating interaction summary from FDA labels..."):
-            summary = generate_interaction_summary(list(found.keys()), found)
-        
-        st.markdown("## 📋 Interaction Summary")
-        st.markdown(summary)
-    
+            try:
+                summary = generate_interaction_summary(list(found.keys()), found)
+                st.markdown("## 📋 Interaction Summary")
+                with st.container(border=True):
+                    st.markdown(summary)
+            except Exception as e:
+                if "rate_limit" in str(e).lower() or "429" in str(e):
+                    st.warning(
+                        "⚠️ The AI service is temporarily busy. "
+                        "Please wait 30 seconds and try again."
+                    )
+                else:
+                    st.error(f"❌ An error occurred: {str(e)}")
     else:
         st.error(
             "❌ No FDA label data could be retrieved for any of the entered drugs. "
