@@ -16,10 +16,19 @@ def fetch_fda_label(drug_name: str):
         response = requests.get(url, timeout=10)
         data = response.json()
         result = data["results"][0]
-        interactions = result.get("drug_interactions", ["No interaction data found"])[0]
+        
+        interactions = " ".join(result.get("drug_interactions", ["No interaction data found"]))
+        warnings = " ".join(result.get("warnings", ["No warnings data found"]))
+        set_id = result.get("set_id", "unknown")
+        effective_time = result.get("effective_time", "unknown")
+        
         return {
+            "drug_name": drug_name,
             "drug": drug_name,
-            "interaction_text": interactions
+            "interaction_text": interactions,
+            "warnings": warnings,
+            "set_id": set_id,
+            "effective_time": effective_time
         }
     except Exception:
         return None
@@ -27,11 +36,25 @@ def fetch_fda_label(drug_name: str):
 def build_index(drug_list: list, save_path: str = "index"):
     documents = []
     metadatas = []
+    
     for drug in drug_list:
         label = fetch_fda_label(drug)
         if label:
-            documents.append(label["interaction_text"])
-            metadatas.append({"drug": drug})
+            chunk = (
+                f"Drug: {label['drug_name']}\n\n"
+                f"Drug Interactions:\n{label['interaction_text']}\n\n"
+                f"Warnings:\n{label['warnings']}"
+            )
+            documents.append(chunk)
+            metadatas.append({
+                "drug_name": label["drug_name"],
+                "drug": label["drug_name"],
+                "set_id": label["set_id"],
+                "last_updated": label["effective_time"],
+                "source": f"https://dailymed.nlm.nih.gov/dailymed/search.cfm?query={drug}"
+            })
+        else:
+            print(f"Could not fetch label for: {drug}")
 
     embeddings = get_embeddings()
     os.makedirs(save_path, exist_ok=True)
