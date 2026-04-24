@@ -1,4 +1,4 @@
-﻿﻿# src/ingest.py
+﻿# src/ingest.py
 import requests
 import os
 from langchain_community.vectorstores import FAISS
