@@ -10,7 +10,6 @@ An AI-powered drug interaction checker for non-expert caregivers, grounded in of
 ## 🔗 Links
 
 - 🚀 **Live Demo**: [Click here](https://drug-interaction-checker-ndqfsmpfggqqybc32vjlve.streamlit.app/)
-- 📂 **GitHub**: [Click here](https://github.com/Gagana2572/Drug-Interaction-Checker)
 
 ---
 
