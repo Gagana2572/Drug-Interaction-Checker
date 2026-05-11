@@ -7,13 +7,13 @@ An AI-powered drug interaction checker for non-expert caregivers, grounded in of
 
 ---
 
-## 🔗 Links
+##  Links
 
-- 🚀 **Live Demo**: [Click here](https://drug-interaction-checker-ndqfsmpfggqqybc32vjlve.streamlit.app/)
+-  **Live Demo**: [Click here](https://drug-interaction-checker-ndqfsmpfggqqybc32vjlve.streamlit.app/)
 
 ---
 
-## 🧠 What It Does
+##  What It Does
 
 Most caregivers managing elderly patients with multiple medications turn to general-purpose AI chatbots for drug interaction information — the most dangerous option available to them. General LLMs generate answers from training memory with no source traceability, no staleness detection, and no retrieval completeness guarantee.
 
@@ -30,13 +30,13 @@ The model is not remembering. It is reading.
 
 ---
 
-## 🏗️ Architecture
+##  Architecture
 
 User Input → RxNorm Normalizer → FDA OpenFDA API → FAISS Vector Store → Completeness Check → LLaMA 3.3 70B → Summary + Citations
 
 ---
 
-## ⚙️ Tech Stack
+##  Tech Stack
 
 | Component | Technology |
 |---|---|
@@ -51,7 +51,7 @@ User Input → RxNorm Normalizer → FDA OpenFDA API → FAISS Vector Store → 
 
 ---
 
-## 🚀 Setup Instructions
+##  Setup Instructions
 
 **1. Clone the repo**
 
@@ -78,7 +78,7 @@ Copy `.env.example` to `.env` and replace `your_groq_key_here` with your actual 
 
 ---
 
-## 🧪 How to Use
+##  How to Use
 
 1. Type one or more drug names separated by commas
 2. Brand names work too — "Advil" is automatically recognized as "ibuprofen"
@@ -96,7 +96,7 @@ Copy `.env.example` to `.env` and replace `your_groq_key_here` with your actual 
 
 ---
 
-## 🛡️ Key Safety Feature: Completeness Check
+## Key Safety Feature: Completeness Check
 
 The most dangerous output this system could produce is a confidently incomplete answer — where one drug label fails to retrieve silently and the model generates a partial interaction report that looks complete.
 
@@ -104,7 +104,7 @@ To prevent this, before any output is generated the system verifies that an FDA 
 
 ---
 
-## 📊 Evaluation
+##  Evaluation
 
 Run the benchmark evaluation:
 
@@ -123,7 +123,7 @@ Target metrics:
 
 ---
 
-## ⚖️ Ethical Considerations
+##  Ethical Considerations
 
 - **Data source**: FDA DailyMed only — federally maintained, publicly available, authoritative by legal definition. No scraped web content.
 - **Privacy**: No personal health data collected. Users enter drug names only. System is stateless — nothing stored between sessions.
@@ -133,7 +133,7 @@ Target metrics:
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
     drug-interaction-checker/
     ├── src/
@@ -152,6 +152,6 @@ Target metrics:
 
 ---
 
-## ⚠️ Disclaimer
+##  Disclaimer
 
 This tool summarizes FDA label information for educational purposes only. It is not a substitute for consultation with a licensed pharmacist or physician. Do not make medication decisions based solely on this output.
